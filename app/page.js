@@ -4,13 +4,14 @@ import React, { useState } from 'react'
 const page = () => {
   const [title, settitle] = useState("");
   const [desc, setdesc] = useState("");
-  const [mainTask, setMainTask] = useState([])
+  const [mainTask, setMainTask] = useState([]);
   const submitHandler = (e) => {
     e.preventDefault()
     setMainTask([...mainTask, { title, desc }])
 
     settitle("")
     setdesc("")
+    console.log(mainTask)
   }
   let renderTask = <h2>No Task Available</h2>
 
