@@ -22,50 +22,54 @@ const page = () => {
   if (mainTask.length > 0) {
     renderTask = mainTask.map((t, i) => {
       return (
-        <li className="flex items-center justify-between">
-          <div className="flex justify-between pl-4 pr-4 mb-5 w-2/3">
-            <h5 className="text-2xl font-semibold">{t.title}</h5>
-            <h6 className="text-xl font-semibold">{t.desc}</h6>
+        <li className="flex items-center justify-between bg-white p-6 rounded shadow-sm mb-4 border-b-2 border-gray-100">
+          <div className="flex justify-between pl-4 pr-4 w-full">
+            <h5 className="text-2xl font-bold text-gray-800">{t.title}</h5>
+            <h6 className="text-lg text-gray-600">{t.desc}</h6>
           </div>
           <button
             onClick={() => deleteHandler(i)}
-            className="hover:bg-red-700 bg-red-400 text-white px-4 py-2 rounded font-bold" > Delete</button>
+            className="hover:bg-red-600 bg-gray-800 text-white px-5 py-2 rounded font-medium transition-colors" > Delete</button>
         </li >
       )
     });
   }
 
   return (
-    <div>
+    <div className="min-h-screen bg-gray-50">
       <>
-        <h1 className="bg-black text-white p-5 font-bold text-center text-5xl">
+        <h1 className="text-6xl font-extrabold text-gray-900 p-10 text-center tracking-tight border-b-4 border-black">
           My Todo List
         </h1>
-        <form onSubmit={submitHandler}>
-          <input
-            type="text"
-            className="text-2xl border-zinc-600 border-2 m-4 px-4 py-2"
-            placeholder="Enter Task here"
-            value={title}
-            onChange={(e) => {
-              settitle(e.target.value);
-            }}
-          />
-          <input
-            type="text"
-            className="text-2xl border-zinc-600 border-2 m-4 px-4 py-2"
-            placeholder="Description"
-            value={desc}
-            onChange={(e) => {
-              setdesc(e.target.value);
-            }}
-          />
-          <button className="bg-green-300 hover:bg-green-500 font-semibold px-3 py-2 rounded-md m-4">
+        <form onSubmit={submitHandler} className="flex flex-wrap justify-center items-end gap-6 p-8 max-w-5xl mx-auto">
+          <div className="flex-1 min-w-72">
+            <input
+              type="text"
+              className="text-xl border-b-2 border-gray-300 bg-transparent px-4 py-3 w-full focus:outline-none focus:border-black transition-colors placeholder-gray-400"
+              placeholder="Enter Task here"
+              value={title}
+              onChange={(e) => {
+                settitle(e.target.value);
+              }}
+            />
+          </div>
+          <div className="flex-1 min-w-72">
+            <input
+              type="text"
+              className="text-xl border-b-2 border-gray-300 bg-transparent px-4 py-3 w-full focus:outline-none focus:border-black transition-colors placeholder-gray-400"
+              placeholder="Description"
+              value={desc}
+              onChange={(e) => {
+                setdesc(e.target.value);
+              }}
+            />
+          </div>
+          <button className="bg-black hover:bg-gray-800 text-white font-medium px-8 py-3 rounded transition-colors">
             ADD
           </button>
         </form>
-        <hr />
-        <div className="p-4 bg-slate-200">
+        <hr className="border-gray-200 max-w-5xl mx-auto" />
+        <div className="p-8 max-w-5xl mx-auto">
           <ul>{renderTask}</ul>
         </div>
       </>
