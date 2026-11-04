@@ -18,11 +18,11 @@ const page = () => {
     copyTask.splice(i, 1)
     setMainTask(copyTask)
   }
-  let renderTask = <h2>No Task Available</h2>;
+  let renderTask = <h2 className="text-center">No Task Available</h2>;
   if (mainTask.length > 0) {
     renderTask = mainTask.map((t, i) => {
       return (
-        <li className="flex items-center justify-between bg-white p-6 rounded shadow-sm mb-4 border-b-2 border-gray-100">
+        <li className="flex items-center justify-between bg-blue-300 p-6 rounded shadow-sm mb-4 border-r-2 border-blue-600">
           <div className="flex justify-between pl-4 pr-4 w-full">
             <h5 className="text-2xl font-bold text-gray-800">{t.title}</h5>
             <h6 className="text-lg text-gray-600">{t.desc}</h6>
@@ -64,7 +64,7 @@ const page = () => {
               }}
             />
           </div>
-          <button className="bg-black hover:bg-gray-800 text-white font-medium px-8 py-3 rounded transition-colors">
+          <button className="bg-black hover:bg-green-500 text-white font-medium px-8 py-3 rounded transition-colors">
             ADD
           </button>
         </form>
